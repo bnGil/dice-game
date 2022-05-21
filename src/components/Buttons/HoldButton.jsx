@@ -8,7 +8,7 @@ class HoldButton extends Component {
   };
 
   render() {
-    return <button onClick={this.fireFunctionsOnClick}>Hold</button>;
+    return <button onClick={this.fireFunctionsOnClick}>HOLD</button>;
   }
 }
 

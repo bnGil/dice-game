@@ -7,6 +7,8 @@ import dice_4 from "../../assets/images/dice-4.png";
 import dice_5 from "../../assets/images/dice-5.png";
 import dice_6 from "../../assets/images/dice-6.png";
 
+const images = [dice_1, dice_2, dice_3, dice_4, dice_5, dice_6];
+
 class RollDice extends Component {
   constructor(props) {
     super(props);
@@ -24,10 +26,10 @@ class RollDice extends Component {
 
   render() {
     return (
-      <div className="dice-container" onClick={this.roll}>
-        <img src={dice_1} alt="dice-1" className="dice" />
-        <img src={dice_2} alt="dice-1" className="dice" />
-        {/* <img src={`dice_${this.state.die2}`} alt="dice-1" className="dice" /> */}
+      <div className="dice-container">
+        <img src={images[this.state.die1 - 1]} alt="dice-1" className="dice" />
+        <img src={images[this.state.die2 - 1]} alt="dice-1" className="dice" />
+        <button onClick={this.roll}>ROLL DICE</button>
       </div>
     );
   }
