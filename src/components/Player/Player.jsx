@@ -7,7 +7,9 @@ class Player extends Component {
 
     return (
       <div className={`player-container ${myTurn}`}>
-        <h2 className="name">{this.props.name}</h2>
+        <h2 className="name">
+          {this.props.isWinner ? "Winner!" : this.props.name}
+        </h2>
         <p className="total-score">{this.props.totalScore}</p>
         <div className="current-score-container">
           <p className="current-score-header">CURRENT</p>

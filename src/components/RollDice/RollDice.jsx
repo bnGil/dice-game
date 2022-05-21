@@ -12,7 +12,7 @@ const images = [dice_1, dice_2, dice_3, dice_4, dice_5, dice_6];
 class RollDice extends Component {
   constructor(props) {
     super(props);
-    this.state = { die1: 1, die2: 1 };
+    this.state = { die1: 1, die2: 1, isRolling: false };
   }
   roll = () => {
     this.setState(
@@ -24,12 +24,36 @@ class RollDice extends Component {
     );
   };
 
+  animate = () => {};
+
   render() {
     return (
-      <div className="dice-container">
-        <img src={images[this.state.die1 - 1]} alt="dice-1" className="dice" />
-        <img src={images[this.state.die2 - 1]} alt="dice-1" className="dice" />
-        <button onClick={this.roll}>ROLL DICE</button>
+      <div className="rolldice-container">
+        <div
+          className={`dice-container ${
+            this.props.isGameOn ? "visible" : "invisible"
+          }`}
+        >
+          <img
+            src={images[this.state.die1 - 1]}
+            alt="dice-1"
+            className="dice"
+          />
+          <img
+            src={images[this.state.die2 - 1]}
+            alt="dice-1"
+            className="dice"
+          />
+        </div>
+        <button
+          onClick={() => {
+            this.roll();
+            this.props.changeGameMode();
+          }}
+          disabled={this.props.isDisabled}
+        >
+          ROLL DICE
+        </button>
       </div>
     );
   }

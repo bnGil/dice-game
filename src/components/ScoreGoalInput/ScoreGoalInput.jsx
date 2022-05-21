@@ -3,11 +3,17 @@ import React, { Component } from "react";
 class ScoreGoalInput extends Component {
   render() {
     return (
-      <input
-        type="text"
-        className="score-goal-input"
-        onChange={(e) => this.props.onInputChange(e.target.value)}
-      ></input>
+      <div className="score-goal-container">
+        <label htmlFor="score-goal">Score Goal:</label>
+        <input
+          type="text"
+          id="score-goal"
+          className="score-goal-input"
+          value={this.props.value}
+          onChange={(e) => this.props.onInputChange(e.target.value)}
+          disabled={this.props.isGameOn}
+        ></input>
+      </div>
     );
   }
 }
