@@ -15,16 +15,22 @@ class RollDice extends Component {
     this.state = { die1: 1, die2: 1, isRolling: false };
   }
   roll = () => {
-    this.setState(
-      {
-        die1: Math.floor(Math.random() * 6 + 1),
-        die2: Math.floor(Math.random() * 6 + 1),
-      },
-      () => this.props.updateCurrentSum(this.state.die1 + this.state.die2)
-    );
+    this.setState({
+      die1: Math.floor(Math.random() * 6 + 1),
+      die2: Math.floor(Math.random() * 6 + 1),
+      isRolling: true,
+    });
+
+    setTimeout(() => {
+      this.setState({ isRolling: false });
+      this.props.updateCurrentSum(this.state.die1 + this.state.die2);
+    }, 1000);
   };
 
-  animate = () => {};
+  functionsToFire = () => {
+    this.roll();
+    this.props.changeGameMode();
+  };
 
   render() {
     return (
@@ -37,22 +43,16 @@ class RollDice extends Component {
           <img
             src={images[this.state.die1 - 1]}
             alt="dice-1"
-            className="dice"
+            className={`dice ${this.state.isRolling ? "animation" : ""}`}
           />
           <img
             src={images[this.state.die2 - 1]}
             alt="dice-1"
-            className="dice"
+            className={`dice ${this.state.isRolling ? "animation" : ""}`}
           />
         </div>
-        <button
-          onClick={() => {
-            this.roll();
-            this.props.changeGameMode();
-          }}
-          disabled={this.props.isDisabled}
-        >
-          ROLL DICE
+        <button onClick={this.functionsToFire} disabled={this.props.isDisabled}>
+          <i class="fa-solid fa-dice fa-2x"></i> ROLL DICE
         </button>
       </div>
     );

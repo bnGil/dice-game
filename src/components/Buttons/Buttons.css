@@ -4,3 +4,10 @@
 .invisible {
   visibility: hidden;
 }
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin: 5px;
+}

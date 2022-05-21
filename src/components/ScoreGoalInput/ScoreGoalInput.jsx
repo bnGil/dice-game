@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ScoreGoalInput.css";
 
 class ScoreGoalInput extends Component {
   render() {

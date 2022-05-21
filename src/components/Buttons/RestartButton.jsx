@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class RestartButton extends Component {
   render() {
-    return <button onClick={this.props.restart}>RESETART</button>;
+    return (
+      <button onClick={this.props.restart}>
+        <i class="fa-solid fa-arrow-rotate-left fa-2x"></i> RESETART
+      </button>
+    );
   }
 }
 

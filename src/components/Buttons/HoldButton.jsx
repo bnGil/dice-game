@@ -15,7 +15,7 @@ class HoldButton extends Component {
         className={`${this.props.isGameOn ? "visible" : "invisible"}`}
         disabled={this.props.isDisabled}
       >
-        HOLD
+        <i class="fa-solid fa-download fa-2x"></i> HOLD
       </button>
     );
   }

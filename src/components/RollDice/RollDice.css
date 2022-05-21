@@ -6,12 +6,15 @@
   align-items: center;
 }
 
+.dice-container {
+  margin-bottom: 20px;
+}
+
 .dice {
   border: 1px solid black;
   border-radius: 10px;
   margin: 10px;
-  /* width: 10vw; */
-  max-height: 20vh;
+  max-height: 15vh;
 }
 
 .visible {
@@ -19,4 +22,20 @@
 }
 .invisible {
   visibility: hidden;
+}
+
+.animation {
+  animation: RollDice 1s;
+}
+
+@keyframes RollDice {
+  0% {
+    visibility: hidden;
+  }
+  10% {
+    visibility: visible;
+  }
+  100% {
+    transform: rotate(720deg);
+  }
 }
