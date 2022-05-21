@@ -1,3 +1,10 @@
+.score-goal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 #score-goal {
   margin: 0 10px;
   width: 70px;

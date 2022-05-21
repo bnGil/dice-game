@@ -90,13 +90,16 @@ class Game extends Component {
         playerTurn: [true, false],
         winner: [false, false],
         isGameOn: false,
-        gameOver: false,
+        freezeGame: false,
       };
     });
   };
 
   changeGameMode = () => {
-    this.setState({ isGameOn: true });
+    this.setState({ isGameOn: true, freezeGame: true });
+    setTimeout(() => {
+      this.setState({ freezeGame: false });
+    }, 1000);
   };
 
   render() {
@@ -115,14 +118,14 @@ class Game extends Component {
             updateCurrentSum={this.updateCurrentDiceRollSum}
             changeGameMode={this.changeGameMode}
             isGameOn={this.state.isGameOn}
-            isDisabled={this.state.gameOver}
+            isDisabled={this.state.freezeGame}
           />
           <HoldButton
             updateCurrentSum={this.updateCurrentDiceRollSum}
             updateTotalScore={this.updateTotalScore}
             changeTurn={this.changeTurn}
             isGameOn={this.state.isGameOn}
-            isDisabled={this.state.gameOver}
+            isDisabled={this.state.freezeGame}
           />
           <ScoreGoalInput
             onInputChange={this.updateScoreGoal}

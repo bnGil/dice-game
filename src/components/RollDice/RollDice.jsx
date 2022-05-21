@@ -52,7 +52,7 @@ class RollDice extends Component {
           />
         </div>
         <button onClick={this.functionsToFire} disabled={this.props.isDisabled}>
-          <i class="fa-solid fa-dice fa-2x"></i> ROLL DICE
+          <i className="fa-solid fa-dice fa-2x"></i> ROLL DICE
         </button>
       </div>
     );
