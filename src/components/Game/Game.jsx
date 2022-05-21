@@ -15,7 +15,7 @@ class Game extends Component {
     playerTurn: [true, false],
     winner: [false, false],
     isGameOn: false,
-    gameOver: false,
+    freezeGame: false,
   };
 
   updateCurrentDiceRollSum = (newSum) => {
@@ -59,7 +59,7 @@ class Game extends Component {
   };
 
   gameOver = () => {
-    this.setState({ gameOver: true });
+    this.setState({ freezeGame: true });
   };
 
   checkWinner = () => {
